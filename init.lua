@@ -13,6 +13,10 @@ Adds gnomes as a new race. They are a distant relative to dwarves and know the l
 Garden Gnomes have willpower and nature related skills, but are not necessarily antimagic.
 Encorcelled Gnomes have magic related skills.
 Tinker Gnomes (only available if you have Embers DLC enabled) have tinkers.
+Cursed gnomes have willpower and hate related skills.
+
+https://github.com/Werekracken/tome-gnomes
+
 
 
 -All gnomes
@@ -123,8 +127,6 @@ Your golem can use both runes and implants.
 
 
 -Comments
-This addon overloads golemancy.
-
 There is not much new here. The new class tree for ensorcelled gnomes is mostly cookie cutter and the gnome models are modified halfling models (with cool hair options and beards). The goal of gnomes is to add some variety by making a race that with more options while still feeling like actual race and not just an Adventurer.
 
 A good amount of the gnomish alchemist golem changes were inspired by the "Golem - The Ironbreaker" addon.
