@@ -7,7 +7,7 @@ weight = 2000
 author = {"Werekracken"}
 tags = {"race", "gnomes", "gnome", "tinker", "garden", "ensorcelled"}
 homepage = "https://te4.org/user/102798/addons"
-description = [[ 
+description = [[
 Adds gnomes as a new race. They are a distant relative to dwarves and know the location of the Iron Council.
 
 Garden Gnomes have willpower and nature related skills, but are not necessarily antimagic.

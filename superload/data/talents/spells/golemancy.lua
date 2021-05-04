@@ -23,11 +23,11 @@ local _M = loadPrevious(...)
 invoke_golem_old = Talents.talents_def.T_REFIT_GOLEM.invoke_golem
 Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t)
 	invoke_golem_old(self, t)
-	
-	
+
+
 	if self.descriptor.race == "Gnome" then
 		self.alchemy_golem.equipdoll = "gnolemdolly"
-		self.alchemy_golem.no_points_on_levelup = function(self)
+		self.alchemy_golem.no_points_on_levelup = function(self) --luacheck: ignore 432
 			self.unused_stats = self.unused_stats + 2
 			if self.level >= 2 and self.level % 2 == 0 then self.unused_talents = self.unused_talents + 1 end
 			if self.level >= 2 and self.level % 4 == 0 then self.unused_generics = self.unused_generics + 1 end
@@ -55,13 +55,13 @@ Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t)
 		}
 
 	end
-	
+
 	if self.descriptor.subrace == "Garden Gnome" then
 		self.alchemy_golem.power_source = {arcane=true, nature=true}
 		self.alchemy_golem.forbid_nature = 0
 		self.alchemy_golem.inscription_restrictions = { ["inscriptions/runes"] = true, ["inscriptions/infusions"] = true, }
 	end
-	
+
 	if self.descriptor.subrace == "Tinker Gnome" then
 		-----
 		self.alchemy_golem.steam_regen = 1
@@ -69,16 +69,16 @@ Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t)
 		self.alchemy_golem.power_source = {arcane=true, steam=true}
 		self.alchemy_golem.inscription_restrictions = { ["inscriptions/runes"] = true, ["inscriptions/implants"] = true, }
 		self.alchemy_golem.can_tinker = {steamtech=1}
-		self.alchemy_golem.actor = { 
+		self.alchemy_golem.actor = {
 			resolvers.talents{
 				[Talents.T_STEAMSAW_MASTERY] = 1,
 				[Talents.T_STEAM_POOL]=1,
 			},
-			
+
 		}
 		self.alchemy_golem:resolve()
 	end
-	
+
 end
 
 ---- Golem Power

@@ -113,7 +113,7 @@ newBirthDescriptor {
 		moddable_tile = "halfling_#sex#", --piggyback on halfling art
 		resolvers.inventory{ id=true,
 			{defined="ORB_SCRYING"},
-			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000, ego_chance=-1000}
+			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000}
 		},
 	},
 	default_cosmetics = {
@@ -150,7 +150,7 @@ local doom_def = getBirthDescriptor("subclass", "Doombringer")
 
 if demo_def then
 	local old_start = demo_def.copy.class_start_check
-	
+
 	--quietly masquerades us as a human so we can slip through the (awful and stupid) starting zone checks
 	local function new_start(self)
 		local real_race = self.descriptor.race
@@ -160,7 +160,7 @@ if demo_def then
 		old_start(self)
 		self.descriptor.race = real_race
 	end
-	
+
 	demo_def.copy.class_start_check = new_start
 	doom_def.copy.class_start_check = new_start
 end
@@ -170,7 +170,7 @@ local coe_def = getBirthDescriptor("subclass", "Cultist of Entropy")
 
 if writhe_def then
 	local old_start = writhe_def.copy.class_start_check
-	
+
 	--quietly masquerades us as a human so we can slip through the (awful and stupid) starting zone checks
 	local function new_start(self)
 		local real_race = self.descriptor.race
@@ -180,7 +180,7 @@ if writhe_def then
 		old_start(self)
 		self.descriptor.race = real_race
 	end
-	
+
 	writhe_def.copy.class_start_check = new_start
 	coe_def.copy.class_start_check = new_start
 end
@@ -189,23 +189,24 @@ end
 local orcs_def = getBirthDescriptor("world", "Orcs")
 if orcs_def then
 	local old_start = orcs_def.copy.before_starting_zone
-	
+
 	--are we a gnome? yes? then mess with our start stuff
 	local function new_start(self)
 		if self.descriptor.race == "Gnome" then
 			self.faction = 'kruk-pride'
-			
+
 			self.default_wilderness = {"playerpop", "orc"}
 			self.starting_zone = "orcs+town-kruk"
 			self.starting_quest = "orcs+kruk-invasion"
 		end
 		if old_start then old_start(self) end
 	end
-	
+
 	orcs_def.copy.before_starting_zone = new_start
 end
 
-local status, Orcs = pcall(require, "mod.class.OrcCampaign")
+--local status, Orcs = pcall(require, "mod.class.OrcCampaign")
+local status = pcall(require, "mod.class.OrcCampaign")
 if status then
 	---------------------------------------------------------
 	--                    Tinker Gnomes                    --
@@ -291,7 +292,7 @@ newBirthDescriptor {
 		moddable_tile = "halfling_#sex#", --piggyback on halfling art
 		resolvers.inventory{ id=true,
 			{defined="ORB_SCRYING"},
-			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000, ego_chance=-1000}
+			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000}
 		},
 		chooseCursedAuraTree = true,
 		start_check = function(self) self:learnTalent(self.T_TELEPORT_POINT_ZERO, true, nil, {no_unlearn=true}) end,

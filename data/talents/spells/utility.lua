@@ -1,6 +1,3 @@
-local ActorTalents = require "engine.interface.ActorTalents"
-local Object = require "mod.class.Object"
-
 newTalent{
 	name = "Magical Proficiency", short_name = "UTILITY_MAGICAL_PROFICIENCY",
 	type = {"spell/utility", 1},
@@ -100,7 +97,7 @@ newTalent{
 			knockback = self:addTemporaryValue("knockback_immune", -t.getKBVulnerable(self, t))
 		}
 	end,
-	deactivate = function(self, t, p)
+	deactivate = function(self, t, p) -- luacheck: ignore 212
 		self:removeTemporaryValue("movement_speed", p.speed)
 		self:removeTemporaryValue("knockback_immune", p.knockback)
 		return true
