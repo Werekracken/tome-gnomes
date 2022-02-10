@@ -57,8 +57,6 @@ newBirthDescriptor {
 	talents_types = {
 		["wild-gift/call"]={true, 0.3},
 		["wild-gift/fungus"]={true, 0.3},
-		["wild-gift/moss"]={true, 0.3},
-		["cunning/survival"]={false, 0}, -- because everyone gets it
 	},
 	copy = {
 		moddable_tile_base = "base_gnome.png",
@@ -103,8 +101,6 @@ newBirthDescriptor {
 	talents_types = {
 		["spell/divination"]={true, 0.3},
 		["spell/staff-combat"]={true, 0.3},
-		["spell/utility"]={true, 0.3},
-		["cunning/survival"]={false, 0}, -- because everyone gets it
 	},
 	copy = {
 		moddable_tile_base = "base_gnome.png",
@@ -224,8 +220,6 @@ if status then
 		talents_types = {
 			["steamtech/physics"]={true, 0.2}, --0.2 is the same as tinker classes
 			["steamtech/chemistry"]={true, 0.2}, --0.2 is the same as tinker classes
-			["cunning/trapping"]={true, 0.3},
-			["cunning/survival"]={false, 0}, -- because everyone gets it
 		},
 		copy = {
 			moddable_tile_base = "base_gnome.png",
@@ -278,8 +272,6 @@ newBirthDescriptor {
 	talents_types = {
 		["cursed/cursed-form"]={true, 0.3},
 		["cursed/dark-sustenance"]={true, 0.3},
-		["cursed/fears"]={true, 0.3},
-		["cunning/survival"]={false, 0}, -- because everyone gets it
 	},
 	talents = {
 		[ActorTalents.T_UNNATURAL_BODY] = 1,
