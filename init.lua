@@ -5,7 +5,7 @@ version = {1,7,2}
 addon_version = {1,1,1}
 weight = 2000
 author = {"Werekracken"}
-tags = {"race", "gnomes", "gnome", "tinker", "garden", "ensorcelled"}
+tags = {"Race", "race", "Gnomes", "gnomes", "Gnome", "gnome", "Tinker", "tinker", "garden", "ensorcelled"}
 homepage = "https://te4.org/user/102798/addons"
 description = [[
 Adds gnomes as a new race. They are a distant relative to dwarves and know the location of the Iron Council.

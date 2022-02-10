@@ -47,8 +47,7 @@ newBirthDescriptor {
 	desc = {
 		_t"Garden Gnomes are wild when nobody is watching. They are small, but have access to nature abilities to improve their health and healing.",
 		_t"",
-		_t"#GOLD#Stat modifiers:",
-		_t"#LIGHT_BLUE# * +2 Willpower",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
 		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
@@ -94,8 +93,7 @@ newBirthDescriptor {
 	desc = {
 		_t"Ensorcelled Gnomes are touched by the arcane. They are small, but have access to magic utilities and defenses.",
 		_t"",
-		_t"#GOLD#Stat modifiers:",
-		_t"#LIGHT_BLUE# * +2 Magic",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Magic",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
 		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
@@ -217,8 +215,8 @@ if status then
 		desc = {
 			_t"Tinker Gnomes are exceptional engineers and dedicated to tinkering. They are small, but always prepared thanks to the tools they can create.",
 			_t"",
-			_t"#GOLD#Stat modifiers: #LIGHT_BLUE#+2 Cunning",
-			_t"#GOLD#Experience penalty: #LIGHT_BLUE#10%",
+			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Cunning",
+			_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 		},
 		power_source = {steam=true, technique=true},
 		inc_stats = { cun=2 },
@@ -270,8 +268,7 @@ newBirthDescriptor {
 	desc = {
 		_t"Cursed Gnomes are afllicted. They are small, but can feed off of opponents' hatred and use their fear against them.",
 		_t"",
-		_t"#GOLD#Stat modifiers:",
-		_t"#LIGHT_BLUE# * +2 Willpower",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
 		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
