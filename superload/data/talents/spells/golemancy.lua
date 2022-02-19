@@ -23,7 +23,7 @@ local _M = loadPrevious(...)
 require "engine.Game"
 
 invoke_golem_old = Talents.talents_def.T_REFIT_GOLEM.invoke_golem
-Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t, birth) --ignore 212
+Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t, birth) --luacheck: ignore 212
 	invoke_golem_old(self, t)
 
 	if self.descriptor.race == "Gnome" then
