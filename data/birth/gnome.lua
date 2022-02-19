@@ -1,3 +1,5 @@
+local ActorInventory = require "engine.interface.ActorInventory"
+
 ---------------------------------------------------------
 --                       Gnomes                        --
 ---------------------------------------------------------
@@ -14,6 +16,7 @@ newBirthDescriptor{
 			["Garden Gnome"] = "allow",
 			["Ensorcelled Gnome"] = "allow",
 			["Cursed Gnome"] = "allow",
+			["Shifty Gnome"] = "allow",
 		},
 	},
 	copy = {
@@ -21,7 +24,7 @@ newBirthDescriptor{
 		moddable_tile_base = "base_gnome.png",
 		moddable_tile = "halfling_#sex#", --piggyback on halfling art
 		size_category = 1, -- the smallest
-		life_rating = 7, -- tied for the lowest
+		life_rating = 9, -- second lowest, same as halfling
 		can_see_iron_council = 1,
 		extra_generic_point_every = 10,
 		starting_intro = "gnome",
@@ -33,9 +36,30 @@ newBirthDescriptor{
 		resolvers.inscription("INFUSION:_REGENERATION", {cooldown=10, dur=5, heal=100}, 1),
 		resolvers.inscription("INFUSION:_WILD", {cooldown=14, what={physical=true}, dur=4, power=14}, 2),
 		resolvers.inscription("INFUSION:_HEALING", {cooldown=12, heal=50}, 3),
+		equipdoll = "gnome",
 	},
 	random_escort_possibilities = { {"tier1.1", 1, 2}, {"tier1.2", 1, 2}, {"daikara", 1, 2}, {"old-forest", 1, 4}, {"dreadfell", 1, 8}, {"reknor", 1, 2}, },
 	moddable_attachement_spots = "race_halfling",
+	body = { INVEN = 1000, QS_MAINHAND = 1, QS_OFFHAND = 1, MAINHAND = 1, OFFHAND = 1, FINGER = 2, NECK = 1, LITE = 1, BODY = 1, HEAD = 1, CLOAK = 1, HANDS = 1, BELT = 1, FEET = 1, TOOL = 2, QUIVER = 1, QS_QUIVER = 1 },
+}
+
+ActorInventory.equipdolls.gnome = { w=48, h=48, itemframe="ui/equipdoll/itemframe48.png", itemframe_sel="ui/equipdoll/itemframe-sel48.png", ix=3, iy=3, iw=42, ih=42, doll_x=116, doll_y=168+64,
+	list={
+		PSIONIC_FOCUS = {{weight=1, x=48, y=48, subshift="left"}},
+		MAINHAND = {{weight=2, x=48, y=120, subshift="left"}},
+		OFFHAND = {{weight=3, x=48, y=192, subshift="left"}},
+		BODY = {{weight=4, x=48, y=264, subshift="left"}},
+		QUIVER = {{weight=5, x=48, y=336, subshift="left"}},
+		FINGER = {{weight=6, x=48, y=408, subshift="left"}, {weight=7, x=124, y=408, text="bottom", subshift="left"}},
+		LITE = {{weight=8, x=188, y=408, subshift="right"}},
+		TOOL = {{weight=9, x=264, y=408, subshift="right", text="bottom"}, {weight=22, x=264, y=480, text="bottom"}},
+		FEET = {{weight=10, x=264, y=336}},
+		BELT = {{weight=11, x=264, y=264}},
+		HANDS = {{weight=12, x=264, y=192}},
+		CLOAK = {{weight=13, x=264, y=120}},
+		NECK = {{weight=14, x=235, y=48, subshift="right", text="topright"}},
+		HEAD = {{weight=15, x=150, y=35, subshift="left", text="bottom"}},
+	}
 }
 
 ---------------------------------------------------------
@@ -45,14 +69,14 @@ newBirthDescriptor {
 	type = 'subrace',
 	name = "Garden Gnome",
 	desc = {
-		_t"Garden Gnomes are wild when nobody is watching. They are small, but have access to nature abilities to improve their health and healing.",
+		_t"Garden Gnomes are wild when nobody is watching. They are small, but have nature abilities to improve their health and healing.",
 		_t"",
-		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower",
-		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
+		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
 		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
 	power_source = {nature=true},
-	inc_stats = { wil=2 },
+	inc_stats = { wil=2, cun=2 },
 	experience = 1.10,
 	talents_types = {
 		["wild-gift/call"]={true, 0.3},
@@ -89,14 +113,14 @@ newBirthDescriptor {
 	type = 'subrace',
 	name = "Ensorcelled Gnome",
 	desc = {
-		_t"Ensorcelled Gnomes are touched by the arcane. They are small, but have access to magic utilities and defenses.",
+		_t"Ensorcelled Gnomes are touched by the arcane. They are small, but have magic utilities and defenses.",
 		_t"",
-		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Magic",
-		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Magic, +2 Cunning",
+		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
 		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
 	power_source = {arcane=true},
-	inc_stats = { mag=2 },
+	inc_stats = { mag=2, cun=2 },
 	experience = 1.10,
 	talents_types = {
 		["spell/divination"]={true, 0.3},
@@ -123,6 +147,154 @@ newBirthDescriptor {
 		},
 		facial_features = {
 			{name="Blue Beard", file="gnome_beard_blue", only_for={sex="Male"}},
+		},
+	},
+}
+
+local orcs = pcall(require, "mod.class.OrcCampaign")
+if orcs then
+	---------------------------------------------------------
+	--                    Tinker Gnomes                    --
+	---------------------------------------------------------
+	newBirthDescriptor {
+		type = 'subrace',
+		name = "Tinker Gnome",
+		desc = {
+			_t"Tinker Gnomes are exceptional engineers and dedicated to tinkering. They are small, but always prepared thanks to the tools they can create.",
+			_t"",
+			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +4 Cunning",
+			_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
+			_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
+		},
+		power_source = {steam=true, technique=true},
+		inc_stats = { cun=4 },
+		experience = 1.10,
+		talents_types = {
+			["steamtech/physics"]={true, 0.2}, --0.2 is the same as tinker classes
+			["steamtech/chemistry"]={true, 0.2}, --0.2 is the same as tinker classes
+		},
+		copy = {
+			moddable_tile_base = "base_gnome.png",
+			moddable_tile = "halfling_#sex#", --piggyback on halfling art
+			resolvers.inventory{ id=true,
+				{defined="ORB_SCRYING"},
+				{defined="APE", base_list="mod.class.Object:/data-orcs/general/objects/quest-artifacts.lua"},
+				{type="scroll", subtype="implant", name="steam generator implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
+				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
+				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
+			},
+		},
+		game_state = {
+			merge_tinkers_data = true, -- drop tinker stuff.
+		},
+		default_cosmetics = {
+			{"hairs", "White Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
+			{"facial_features", "White Beard", {sex="Male"}},
+		},
+		cosmetic_options = {
+			hairs = {
+				{name="White Hair 1", file="gnome_hair_white_01"},
+				{name="White Hair 2", file="gnome_hair_white_02", only_for={sex="Female"}},
+				{name="White Hair 3", file="gnome_hair_white_03", only_for={sex="Female"}},
+				{name="White Hair 4", file="gnome_hair_white_04", only_for={sex="Female"}},
+			},
+			facial_features = {
+				{name="White Beard", file="gnome_beard_white", only_for={sex="Male"}},
+			},
+		},
+	}
+end
+
+---------------------------------------------------------
+--                 Cursed Gnomes                  --
+---------------------------------------------------------
+newBirthDescriptor {
+	type = 'subrace',
+	name = "Cursed Gnome",
+	desc = {
+		_t"Cursed Gnomes are afllicted. They are small and cursed, but can feed off of opponents' hatred and use it against against them.",
+		_t"",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
+		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
+		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
+	},
+	power_source = {psionic=true, technique=true},
+	inc_stats = { wil=2, cun=2 },
+	experience = 1.10,
+	talents_types = {
+		["cursed/cursed-form"]={true, 0.3},
+		["cursed/dark-sustenance"]={true, 0.3},
+	},
+	talents = {
+		[ActorTalents.T_UNNATURAL_BODY] = 1,
+	},
+	copy = {
+		moddable_tile_base = "base_gnome.png",
+		moddable_tile = "halfling_#sex#", --piggyback on halfling art
+		resolvers.inventory{ id=true,
+			{defined="ORB_SCRYING"},
+			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000}
+		},
+		chooseCursedAuraTree = true,
+		start_check = function(self) self:learnTalent(self.T_TELEPORT_POINT_ZERO, true, nil, {no_unlearn=true}) end,
+	},
+	default_cosmetics = {
+		{"hairs", "Plum Hair 2"}, -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
+		{"facial_features", "Plum Beard", {sex="Male"}},
+	},
+	cosmetic_options = {
+		hairs = {
+			{name="Plum Hair 1", file="gnome_hair_plum_01"},
+			{name="Plum Hair 2", file="gnome_hair_plum_02", only_for={sex="Female"}},
+			{name="Plum Hair 3", file="gnome_hair_plum_03", only_for={sex="Female"}},
+			{name="Plum Hair 4", file="gnome_hair_plum_04", only_for={sex="Female"}},
+		},
+		facial_features = {
+			{name="Plum Beard", file="gnome_beard_plum", only_for={sex="Male"}},
+		},
+	},
+}
+
+---------------------------------------------------------
+--                    Shifty Gnomes                    --
+---------------------------------------------------------
+newBirthDescriptor {
+	type = 'subrace',
+	name = "Shifty Gnome",
+	desc = {
+		_t"Shifty Gnomes are sly and shady. They are small, but dangerous.",
+		_t"",
+		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Dexterity, +2 Cunning",
+		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
+		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
+	},
+	power_source = {technique=true},
+	inc_stats = { dex=2, cun=2 },
+	experience = 1.10,
+	talents_types = {
+		["cunning/scoundrel"]={true, 0.3},
+		["cunning/lethality"]={true, 0.3},
+	},
+	copy = {
+		moddable_tile_base = "base_gnome.png",
+		moddable_tile = "halfling_#sex#", --piggyback on halfling art
+		resolvers.inventory{ id=true,
+			{defined="ORB_SCRYING"},
+		},
+	},
+	default_cosmetics = {
+		{"hairs", "Dark Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
+		{"facial_features", "Dark Beard", {sex="Male"}},
+	},
+	cosmetic_options = {
+		hairs = {
+			{name="Dark Hair 1", file="gnome_hair_dark_01"},
+			{name="Dark Hair 2", file="gnome_hair_dark_02", only_for={sex="Female"}},
+			{name="Dark Hair 3", file="gnome_hair_dark_03", only_for={sex="Female"}},
+			{name="Dark Hair 4", file="gnome_hair_dark_04", only_for={sex="Female"}},
+		},
+		facial_features = {
+			{name="Dark Beard", file="gnome_beard_dark", only_for={sex="Male"}},
 		},
 	},
 }
@@ -198,107 +370,3 @@ if orcs_def then
 
 	orcs_def.copy.before_starting_zone = new_start
 end
-
---local status, Orcs = pcall(require, "mod.class.OrcCampaign")
-local status = pcall(require, "mod.class.OrcCampaign")
-if status then
-	---------------------------------------------------------
-	--                    Tinker Gnomes                    --
-	---------------------------------------------------------
-	newBirthDescriptor {
-		type = 'subrace',
-		name = "Tinker Gnome",
-		desc = {
-			_t"Tinker Gnomes are exceptional engineers and dedicated to tinkering. They are small, but always prepared thanks to the tools they can create.",
-			_t"",
-			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Cunning",
-			_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
-		},
-		power_source = {steam=true, technique=true},
-		inc_stats = { cun=2 },
-		experience = 1.10,
-		talents_types = {
-			["steamtech/physics"]={true, 0.2}, --0.2 is the same as tinker classes
-			["steamtech/chemistry"]={true, 0.2}, --0.2 is the same as tinker classes
-		},
-		copy = {
-			moddable_tile_base = "base_gnome.png",
-			moddable_tile = "halfling_#sex#", --piggyback on halfling art
-			resolvers.inventory{ id=true,
-				{defined="ORB_SCRYING"},
-				{defined="APE", base_list="mod.class.Object:/data-orcs/general/objects/quest-artifacts.lua"},
-				{type="scroll", subtype="implant", name="steam generator implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
-				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
-				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
-			},
-		},
-		game_state = {
-			merge_tinkers_data = true, -- drop tinker stuff.
-		},
-		default_cosmetics = {
-			{"hairs", "White Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
-			{"facial_features", "White Beard", {sex="Male"}},
-		},
-		cosmetic_options = {
-			hairs = {
-				{name="White Hair 1", file="gnome_hair_white_01"},
-				{name="White Hair 2", file="gnome_hair_white_02", only_for={sex="Female"}},
-				{name="White Hair 3", file="gnome_hair_white_03", only_for={sex="Female"}},
-				{name="White Hair 4", file="gnome_hair_white_04", only_for={sex="Female"}},
-			},
-			facial_features = {
-				{name="White Beard", file="gnome_beard_white", only_for={sex="Male"}},
-			},
-		},
-	}
-end
-
----------------------------------------------------------
---                 Cursed Gnomes                  --
----------------------------------------------------------
-newBirthDescriptor {
-	type = 'subrace',
-	name = "Cursed Gnome",
-	desc = {
-		_t"Cursed Gnomes are afllicted. They are small, but can feed off of opponents' hatred and use their fear against them.",
-		_t"",
-		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower",
-		_t"#GOLD#Life per level:#LIGHT_BLUE# 10",
-		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
-	},
-	power_source = {psionic=true, technique=true},
-	inc_stats = { wil=2 },
-	experience = 1.10,
-	talents_types = {
-		["cursed/cursed-form"]={true, 0.3},
-		["cursed/dark-sustenance"]={true, 0.3},
-	},
-	talents = {
-		[ActorTalents.T_UNNATURAL_BODY] = 1,
-	},
-	copy = {
-		moddable_tile_base = "base_gnome.png",
-		moddable_tile = "halfling_#sex#", --piggyback on halfling art
-		resolvers.inventory{ id=true,
-			{defined="ORB_SCRYING"},
-			{type="scroll", subtype="rune", name="phase door rune", ego_chance=-1000}
-		},
-		chooseCursedAuraTree = true,
-		start_check = function(self) self:learnTalent(self.T_TELEPORT_POINT_ZERO, true, nil, {no_unlearn=true}) end,
-	},
-	default_cosmetics = {
-		{"hairs", "Plum Hair 2"}, -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
-		{"facial_features", "Plum Beard", {sex="Male"}},
-	},
-	cosmetic_options = {
-		hairs = {
-			{name="Plum Hair 1", file="gnome_hair_plum_01"},
-			{name="Plum Hair 2", file="gnome_hair_plum_02", only_for={sex="Female"}},
-			{name="Plum Hair 3", file="gnome_hair_plum_03", only_for={sex="Female"}},
-			{name="Plum Hair 4", file="gnome_hair_plum_04", only_for={sex="Female"}},
-		},
-		facial_features = {
-			{name="Plum Beard", file="gnome_beard_plum", only_for={sex="Male"}},
-		},
-	},
-}
