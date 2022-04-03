@@ -24,7 +24,7 @@ newBirthDescriptor{
 		moddable_tile_base = "base_gnome.png",
 		moddable_tile = "halfling_#sex#", --piggyback on halfling art
 		size_category = 1, -- the smallest
-		life_rating = 9, -- second lowest, same as halfling
+		life_rating = 14, -- equal to dwarves
 		can_see_iron_council = 1,
 		extra_generic_point_every = 10,
 		starting_intro = "gnome",
@@ -72,12 +72,10 @@ newBirthDescriptor {
 		_t"Garden Gnomes are wild when nobody is watching. They are small, but have nature abilities to improve their health and healing.",
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
-		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
-		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
+		_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
 	},
 	power_source = {nature=true},
 	inc_stats = { wil=2, cun=2 },
-	experience = 1.10,
 	talents_types = {
 		["wild-gift/call"]={true, 0.3},
 		["wild-gift/fungus"]={true, 0.3},
@@ -117,11 +115,9 @@ newBirthDescriptor {
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Magic, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
-		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
 	power_source = {arcane=true},
 	inc_stats = { mag=2, cun=2 },
-	experience = 1.10,
 	talents_types = {
 		["spell/divination"]={true, 0.3},
 		["spell/staff-combat"]={true, 0.3},
@@ -164,11 +160,9 @@ if orcs then
 			_t"",
 			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +4 Cunning",
 			_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
-			_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 		},
 		power_source = {steam=true, technique=true},
 		inc_stats = { cun=4 },
-		experience = 1.10,
 		talents_types = {
 			["steamtech/physics"]={true, 0.2}, --0.2 is the same as tinker classes
 			["steamtech/chemistry"]={true, 0.2}, --0.2 is the same as tinker classes
@@ -216,11 +210,9 @@ newBirthDescriptor {
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
-		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
 	power_source = {psionic=true, technique=true},
 	inc_stats = { wil=2, cun=2 },
-	experience = 1.10,
 	talents_types = {
 		["cursed/cursed-form"]={true, 0.3},
 		["cursed/dark-sustenance"]={true, 0.3},
@@ -266,11 +258,9 @@ newBirthDescriptor {
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Dexterity, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 9",
-		_t"#GOLD#Experience penalty:#LIGHT_BLUE# 10%",
 	},
 	power_source = {technique=true},
 	inc_stats = { dex=2, cun=2 },
-	experience = 1.10,
 	talents_types = {
 		["cunning/scoundrel"]={true, 0.3},
 		["cunning/lethality"]={true, 0.3},

@@ -46,8 +46,7 @@ Each subrace of gnome focuses on utility and survivability with 2 generic trees 
 - An extra generic talent point every 10th level.
 - Special alchemist golems.
 - size_category = 1, the smallest
-- life_rating = 9, second lowest tied with halflings
-- Experience penalty: 10%
+- life_rating = 14, equal to dwarves
 
 ## Garden gnomes
 
@@ -155,23 +154,12 @@ I'm aware there is another addon named "Let there be gnomes" which was last upda
 
 ## Changelog
 
-v1.0.0
-Initial release of tinker, garden, and ensorcelled gnomes.
-There is an issue with tinker gnome alchemist where using the "interact with golem" interface can duplicate tinkers. Auto-swap tinkers doesn't work correctly on the golem either. I'm not sure how to fix this...
-Not a bug with this addon: demonologist tinker slots and demon slots don't play well together. The problem is not specific to the gnomes addon.
-
-v1.0.1
-Fixed the Ensorcelled Gnomes spell/utility tree so it is properly disabled when silenced.
-
-v1.0.2
-Fixed some copy/paste errors between v1.0.0 and v.1.0.1.
-
-v1.1.0
-Updated init.lua and put the long description on the Gnomes addon page.
-Added the Cursed gnomes.
-
-v1.1.1
-Changed the overload of golemancy to a superload, which is a better way to do it. (Thanks FL0RENT_.)
-
-v2.0.0
-I read somewhere on the forums where DarkGod said that class trees shouldn't be given to races, so I took out class trees. Gave gnomes a second tool slot and +2 Cun. Bumped life per level a little. Added Shifty gnomes.
+- v1.0.0 Initial release of tinker, garden, and ensorcelled gnomes.
+- There is an issue with tinker gnome alchemist where using the "interact with golem" interface can duplicate tinkers. Auto-swap tinkers doesn't work correctly on the golem either. I'm not sure how to fix this...
+- Not a bug with this addon: demonologist tinker slots and demon slots don't play well together. The problem is not specific to the gnomes addon.
+- v1.0.1 Fixed the Ensorcelled Gnomes spell/utility tree so it is properly disabled when silenced.
+- v1.0.2 Fixed some copy/paste errors between v1.0.0 and v.1.0.1.
+- v1.1.0 Updated init.lua and put the long description on the Gnomes addon page. Added the Cursed gnomes.
+- v1.1.1 Changed the overload of golemancy to a superload, which is a better way to do it. (Thanks FL0RENT_.)
+- v2.0.0 I read somewhere on the forums where DarkGod said that class trees shouldn't be given to races, so I took out class trees. Gave gnomes a second tool slot and +2 Cun. Bumped life per level a little. Added Shifty gnomes.
+- v2.0.1 Since they are cousins to dwarves, give them the same life rating. (Gnomes were way too squishy.) And remove the exp penalty because gnomes are definitely not OP.
