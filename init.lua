@@ -2,7 +2,7 @@ long_name = "Gnomes"
 short_name = "gnomes"
 for_module = "tome"
 version = {1,7,2}
-addon_version = {2,0,1}
+addon_version = {2,0,2}
 weight = 2000
 author = {"Werekracken"}
 tags = {"Race", "race", "Gnomes", "gnomes", "Gnome", "gnome", "Tinker", "tinker", "garden", "ensorcelled"}
@@ -12,7 +12,8 @@ Adds gnomes as a new race. They are a distant relative to dwarves and know the l
 
 Garden Gnomes have nature skills, but are not necessarily antimagic.
 Ensorcelled Gnomes have magic skills.
-Tinker Gnomes (only available if you have Embers DLC enabled) have tinkers.
+Tinker Gnomes have tinkers. (only available if you have Embers DLC enabled)
+Iron Gnomes have strength and constitution skills. (only available if you have Embers DLC enabled)
 Cursed gnomes have hate skills.
 Shady gnomes have cunning skills.
 
@@ -76,6 +77,16 @@ Steamtech / Chemistry
 They also start with the steam resource, a steam generator implant, and medical injector implants in inventory if you want to go that route.
 
 --
+Iron gnomes
+Only available if you have Embers DLC.
+
+Stat modifiers: +2 Cunning, +2 Strength
+
+Generic Trees:
+Technique / Conditioning
+Steamtech / Blacksmith
+
+--
 Gnomish alchemist golems
 
 Class Trees:
@@ -135,6 +146,7 @@ Changelog
 - v1.1.1 Changed the overload of golemancy to a superload, which is a better way to do it. (Thanks FL0RENT_.)
 - v2.0.0 I read somewhere on the forums where DarkGod said that class trees shouldn't be given to races, so I took out class trees. Gave gnomes a second tool slot and +2 Cun. Bumped life per level a little. Added Shifty gnomes.
 - v2.0.1 Since they are cousins to dwarves, give them the same life rating. (Gnomes were way too squishy.)  And remove the exp penalty because gnomes are definitely not OP.
+- v2.0.2 Added Iron Gnomes. Added the trees they get to their descriptions in the class selection so you have an idea of what you're getting before you choose them.
 ]]
 overload = true
 superload = true
