@@ -229,18 +229,18 @@ if orcs then
 			},
 		},
 		default_cosmetics = {
-			{"hairs", "Gray Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
-			{"facial_features", "Gray Beard", {sex="Male"}},
+			{"hairs", "Dark Gray Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
+			{"facial_features", "Dark Gray Beard", {sex="Male"}},
 		},
 		cosmetic_options = {
 			hairs = {
-				{name="Gray Hair 1", file="gnome_hair_gray_01"},
-				{name="Gray Hair 2", file="gnome_hair_gray_02", only_for={sex="Female"}},
-				{name="Gray Hair 3", file="gnome_hair_gray_03", only_for={sex="Female"}},
-				{name="Gray Hair 4", file="gnome_hair_gray_04", only_for={sex="Female"}},
+				{name="Dark Gray Hair 1", file="gnome_hair_darkgray_01"},
+				{name="Dark Gray Hair 2", file="gnome_hair_darkgray_02", only_for={sex="Female"}},
+				{name="Dark Gray Hair 3", file="gnome_hair_darkgray_03", only_for={sex="Female"}},
+				{name="Dark Gray Hair 4", file="gnome_hair_darkgray_04", only_for={sex="Female"}},
 			},
 			facial_features = {
-				{name="Gray Beard", file="gnome_beard_gray", only_for={sex="Male"}},
+				{name="Dark Gray Beard", file="gnome_beard_darkgray", only_for={sex="Male"}},
 			},
 		},
 	}
