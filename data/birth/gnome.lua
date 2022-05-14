@@ -13,6 +13,7 @@ newBirthDescriptor{
 		subrace = {
 			__ALL__ = "disallow",
 			["Tinker Gnome"] = "allow",
+			["Iron Gnome"] = "allow",
 			["Garden Gnome"] = "allow",
 			["Ensorcelled Gnome"] = "allow",
 			["Cursed Gnome"] = "allow",
@@ -70,6 +71,7 @@ newBirthDescriptor {
 	name = "Garden Gnome",
 	desc = {
 		_t"Garden Gnomes are wild when nobody is watching. They are small, but have nature abilities to improve their health and healing.",
+		_t"They know Call of the Wild and Fungus.",
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
@@ -112,6 +114,7 @@ newBirthDescriptor {
 	name = "Ensorcelled Gnome",
 	desc = {
 		_t"Ensorcelled Gnomes are touched by the arcane. They are small, but have magic utilities and defenses.",
+		_t"They know Divination and Staff Combat.",
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Magic, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
@@ -157,6 +160,7 @@ if orcs then
 		name = "Tinker Gnome",
 		desc = {
 			_t"Tinker Gnomes are exceptional engineers and dedicated to tinkering. They are small, but always prepared thanks to the tools they can create.",
+			_t"They know tinkering: Physics and Chemistry.",
 			_t"",
 			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +4 Cunning",
 			_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
@@ -197,6 +201,49 @@ if orcs then
 			},
 		},
 	}
+
+	---------------------------------------------------------
+	--                    Iron Gnomes                    --
+	---------------------------------------------------------
+	newBirthDescriptor {
+		type = 'subrace',
+		name = "Iron Gnome",
+		desc = {
+			_t"Iron Gnomes are tough and strong. They are small, but are quite resilient.",
+			_t"They know Conditioning and Blacksmith.",
+			_t"",
+			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Cunning, +2 Strength",
+			_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
+		},
+		power_source = {technique=true},
+		inc_stats = { cun=2, str=2 },
+		talents_types = {
+			["steamtech/blacksmith"]={true, 0.2}, --0.2 is the same as tinker classes
+			["technique/conditioning"]={true, 0.3},
+		},
+		copy = {
+			moddable_tile_base = "base_gnome.png",
+			moddable_tile = "halfling_#sex#", --piggyback on halfling art
+			resolvers.inventory{ id=true,
+				{defined="ORB_SCRYING"},
+			},
+		},
+		default_cosmetics = {
+			{"hairs", "Dark Gray Hair 2"}, -- -- If the hair can't be used by males, no hair gets loaded and it makes him bald as intended.
+			{"facial_features", "Dark Gray Beard", {sex="Male"}},
+		},
+		cosmetic_options = {
+			hairs = {
+				{name="Dark Gray Hair 1", file="gnome_hair_darkgray_01"},
+				{name="Dark Gray Hair 2", file="gnome_hair_darkgray_02", only_for={sex="Female"}},
+				{name="Dark Gray Hair 3", file="gnome_hair_darkgray_03", only_for={sex="Female"}},
+				{name="Dark Gray Hair 4", file="gnome_hair_darkgray_04", only_for={sex="Female"}},
+			},
+			facial_features = {
+				{name="Dark Gray Beard", file="gnome_beard_darkgray", only_for={sex="Male"}},
+			},
+		},
+	}
 end
 
 ---------------------------------------------------------
@@ -207,6 +254,7 @@ newBirthDescriptor {
 	name = "Cursed Gnome",
 	desc = {
 		_t"Cursed Gnomes are afllicted. They are small and cursed, but can feed off of opponents' hatred and use it against against them.",
+		_t"They know Cursed Form and Dark Sustenance.",
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Willpower, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
@@ -255,6 +303,7 @@ newBirthDescriptor {
 	name = "Shifty Gnome",
 	desc = {
 		_t"Shifty Gnomes are sly and shady. They are small, but dangerous.",
+		_t"They know Scoundrel and Lethality.",
 		_t"",
 		_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Dexterity, +2 Cunning",
 		_t"#GOLD#Life per level:#LIGHT_BLUE# 14",

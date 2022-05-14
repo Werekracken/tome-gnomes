@@ -12,9 +12,11 @@
     - [Generic trees](#generic-trees-3)
   - [Tinker gnomes](#tinker-gnomes)
     - [Generic trees](#generic-trees-4)
+  - [Iron gnomes](#iron-gnomes)
+    - [Generic trees](#generic-trees-5)
   - [Gnomish alchemist golems](#gnomish-alchemist-golems)
     - [Class trees](#class-trees)
-    - [Generic trees](#generic-trees-5)
+    - [Generic trees](#generic-trees-6)
     - [Starting points](#starting-points)
     - [Level up points](#level-up-points)
     - [But wait, there's more](#but-wait-theres-more)
@@ -100,6 +102,17 @@ Steamtech / Chemistry
 
 They also start with the steam resource, a steam generator implant, and medical injector implants in inventory if you want to go that route.
 
+## Iron gnomes
+
+__NOTE:__ Only available if you have Embers DLC.
+
+Stat modifiers: +2 Cunning, +2 Strength
+
+### Generic trees
+
+Technique / Conditioning
+Steamtech / Blacksmith
+
 ## Gnomish alchemist golems
 
 ### Class trees
@@ -163,3 +176,4 @@ I'm aware there is another addon named "Let there be gnomes" which was last upda
 - v1.1.1 Changed the overload of golemancy to a superload, which is a better way to do it. (Thanks FL0RENT_.)
 - v2.0.0 I read somewhere on the forums where DarkGod said that class trees shouldn't be given to races, so I took out class trees. Gave gnomes a second tool slot and +2 Cun. Bumped life per level a little. Added Shifty gnomes.
 - v2.0.1 Since they are cousins to dwarves, give them the same life rating. (Gnomes were way too squishy.) And remove the exp penalty because gnomes are definitely not OP.
+- v2.0.2 Added Iron Gnomes. Added the trees they get to their descriptions in the class selection so you have an idea of what you're getting before you choose them.
