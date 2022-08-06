@@ -175,8 +175,9 @@ if orcs then
 			moddable_tile_base = "base_gnome.png",
 			moddable_tile = "halfling_#sex#", --piggyback on halfling art
 			resolvers.inventory{ id=true,
-				{defined="ORB_SCRYING"},
 				{defined="APE", base_list="mod.class.Object:/data-orcs/general/objects/quest-artifacts.lua"},
+			},
+			resolvers.inventory{ id=true, transmo=true,
 				{type="scroll", subtype="implant", name="steam generator implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
 				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
 				{type="scroll", subtype="implant", name="medical injector implant", base_list="mod.class.Object:/data-orcs/general/objects/inscriptions.lua", autoreq=true, ego_chance=-1000},
