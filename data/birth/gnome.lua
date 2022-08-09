@@ -213,7 +213,7 @@ if orcs then
 			_t"Iron Gnomes are tough and strong. They are small, but are quite resilient.",
 			_t"They know Conditioning and Blacksmith.",
 			_t"",
-			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Cunning, +2 Strength",
+			_t"#GOLD#Stat modifiers:#LIGHT_BLUE# +2 Strength, +2 Cunning",
 			_t"#GOLD#Life per level:#LIGHT_BLUE# 14",
 		},
 		power_source = {technique=true},
