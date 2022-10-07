@@ -53,7 +53,7 @@ Talents.talents_def.T_REFIT_GOLEM.invoke_golem = function(self, t, birth) --luac
 		}
 		self.alchemy_golem.talents_types_mastery = {
 			["golem/fighting"] = 0,
-			["golem/arcane"] = -0,
+			["golem/arcane"] = 0,
 		}
 
 		if self.descriptor.subrace == "Garden Gnome" then
@@ -86,14 +86,12 @@ local learn_old = Talents.talents_def.T_GOLEM_POWER.on_learn
 local unlearn_old = Talents.talents_def.T_GOLEM_POWER.on_unlearn
 
 Talents.talents_def.T_GOLEM_POWER.on_learn = function(self, t)
-	if not self.alchemy_golem then return end -- Safety net
 	learn_old(self, t)
 	if self.descriptor.subrace == "Tinker Gnome" then
 		self.alchemy_golem:learnTalent(Talents.T_STEAMSAW_MASTERY, true, nil, {no_unlearn=true})
 	end
 end
 Talents.talents_def.T_GOLEM_POWER.on_unlearn = function(self, t)
-	if not self.alchemy_golem then return end -- Safety net
 	unlearn_old(self, t)
 	if self:getTalentLevelRaw(t) == 0 and not self.innate_alchemy_golem then
 		self:unlearnTalent(self.T_REFIT_GOLEM)
