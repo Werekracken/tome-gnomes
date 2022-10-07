@@ -177,3 +177,4 @@ I'm aware there is another addon named "Let there be gnomes" which was last upda
 - v2.0.0 I read somewhere on the forums where DarkGod said that class trees shouldn't be given to races, so I took out class trees. Gave gnomes a second tool slot and +2 Cun. Bumped life per level a little. Added Shifty gnomes.
 - v2.0.1 Since they are cousins to dwarves, give them the same life rating. (Gnomes were way too squishy.) And remove the exp penalty because gnomes are definitely not OP.
 - v2.0.2 Added Iron Gnomes. Added the trees they get to their descriptions in the class selection so you have an idea of what you're getting before you choose them.
+- v2.0.3 Fix iron gnomes stat description, set starting steam generator and injectors on tinker gnome to be marked for transmutation, and take out safety net lines that prevent classes that don't start with golem from learning golemancy.
